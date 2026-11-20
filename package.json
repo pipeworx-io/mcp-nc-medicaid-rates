@@ -1,0 +1,33 @@
+{
+  "name": "@pipeworx/mcp-nc-medicaid-rates",
+  "version": "0.1.0",
+  "description": "North Carolina Medicaid FQHC and rural health clinic (RHC) core-service rates, per provider (North Carolina DHHS, Division of Health Benefits -- NC Medicaid).",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "mcp-nc-medicaid-rates": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "nc-medicaid-rates"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipeworx-io/mcp-nc-medicaid-rates.git"
+  },
+  "mcpName": "io.github.pipeworx-io/nc-medicaid-rates",
+  "pipeworx": {
+    "mode": "gateway",
+    "slug": "nc-medicaid-rates",
+    "gatewaySlug": "nc-medicaid-rates",
+    "sourceHash": "v1-2afdfdce9a1af60aa649571ec7e37238a14122e906178ffbe68ea51906b3c99d",
+    "sourceCommit": "916a8516c7346946b548c93285fd6a73237f0d24"
+  }
+}

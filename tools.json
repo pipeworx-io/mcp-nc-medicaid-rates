@@ -1,0 +1,62 @@
+[
+  {
+    "name": "nc_core_rates",
+    "description": "North Carolina MEDICAID (not Medicare) FQHC and rural health clinic (RHC) T1015 core-service per-visit encounter rates, PER PROVIDER (NPI and location, with PPS or cost-based basis and begin/end dates), from NC DHHS Division of Health Benefits. The downloadable per-provider schedules cover 2020 and 2021; later (2023 PPS and alternative payment model) schedules sit in a separate NC fee-schedule portal this tool does not read, so figures are old and data_as_of says so. Filter by clinic name fragment or 10-digit NPI, by program, schedule, or the date a rate was in force.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "program": {
+          "type": "string",
+          "enum": [
+            "FQHC",
+            "RHC",
+            "all"
+          ],
+          "description": "FQHC, RHC, or \"all\" (default)."
+        },
+        "provider": {
+          "type": "string",
+          "description": "Clinic name fragment (names are cut off at ~35 characters in the publication) or a 10-digit NPI."
+        },
+        "npi": {
+          "type": "string",
+          "description": "10-digit NPI, as a string."
+        },
+        "schedule": {
+          "type": "string",
+          "description": "\"latest\" (default), \"2021-07-01\" or \"2020-03-31\" (the schedule effective dates; see nc_rate_periods)."
+        },
+        "effective_on": {
+          "type": "string",
+          "description": "A date (YYYY-MM-DD): return the rate span in force that day (2019-2021 spans are published)."
+        },
+        "include_history": {
+          "type": "boolean",
+          "description": "Return every published span in the schedule, not only those open-ended when published."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max rows (default 25, max 200). Summaries cover all providers in the selection."
+        }
+      }
+    }
+  },
+  {
+    "name": "nc_rate_periods",
+    "description": "List the NC Medicaid FQHC and RHC core-service rate schedules available (effective dates, publication update date, provider counts) and say what is not covered (rates after 2021).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "program": {
+          "type": "string",
+          "enum": [
+            "FQHC",
+            "RHC",
+            "all"
+          ],
+          "description": "One program, or omit for both."
+        }
+      }
+    }
+  }
+]
